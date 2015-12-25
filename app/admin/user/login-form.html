@@ -1,0 +1,39 @@
+<div class="ui one column stackable center aligned page grid login-form" ng-controller="UserController as uc">
+   <div class="column twelve wide ui segment">
+       <div class="login-header"><h3 class="ui header login-form-header">Admin Login</h3></div>
+       <form id="loginForm" name="loginForm" novalidate>
+           <div class="ui error message" ng-show="loginForm.submitted && uc.invalidUserCredentials">
+              <div class="content">
+                <p>Invalid username or password</p>
+              </div>
+            </div>
+           <div class="ui form">
+               <div class="field" ng-class="{error: loginForm.email.$invalid && loginForm.submitted}">
+                   <label>Email:</label>
+                   <input type="email" name="email" ng-model="uc.user.email" required />
+                   <div class="error-message" ng-show="loginForm.email.$error.required && loginForm.submitted">This is a required field.</div>
+                   <div class="error-message" ng-show="loginForm.email.$error.email && loginForm.submitted">Not valid email.</div>
+               </div>
+               <div class="field" ng-class="{error: loginForm.password.$invalid && loginForm.submitted}">
+                   <label>Password:</label>
+                   <input type="password" name="password" ng-model="uc.user.password" required />
+                   <div class="error-message" ng-show="loginForm.password.$error.required && loginForm.submitted">This is a required field.</div>
+               </div>               
+               <div class="btn-wrapper">
+                   <div id="loginBtn" class="ui blue button" ng-click="uc.processLoginForm()"><i class="lock icon"></i>Login</div>
+               </div>               
+           </div>           
+       </form>       
+   </div>
+</div>  
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+        $(document).keypress(function(e) {
+            if (e.which == 13) {
+                $('#loginBtn').trigger('click');
+            }
+        });        
+  })
+;
+</script>

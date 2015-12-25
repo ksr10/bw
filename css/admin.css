@@ -1,0 +1,35 @@
+.centered.page {
+    min-height: 900px;
+}
+.ui.column.grid.login-form > .column[class*="twelve wide"] {
+    margin-top: 150px;
+    width: 37% !important;
+}
+.ui.column.grid.login-form label, .ui.column.grid.login-form .forgot-wrapper {
+    text-align: left;
+}
+.ui.column.grid.login-form .btn-wrapper {
+    text-align: right;
+    margin-top: 20px;
+}
+.error-message {
+    color: #d40707;
+    font-size: 13px;
+    text-align: left;
+    background: url('images/validation_advice_bg.gif') no-repeat 2px 2px;
+    padding-left: 15px;
+    margin-top: 2px;
+}
+.ui.form.admin-form-wrapper .success.message, .ui.form.admin-form-wrapper .warning.message, .ui.form.admin-form-wrapper .error.message,
+.ui.form .send-documents-form .success.message {
+    display: block;
+}
+.menu .right.menu > .mobile.item {
+  display: none;
+}
+.admin-content {
+    min-height: 700px;
+}
+.admin-wrapper .ui.segment {
+    box-shadow: none;
+}
