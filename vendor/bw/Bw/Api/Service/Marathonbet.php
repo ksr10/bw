@@ -2,8 +2,6 @@
 
 namespace Bw\Api\Service;
 
-use Sunra\PhpSimple\HtmlDomParser;
-
 class Marathonbet extends Connect
 {
     protected $uries = array(
@@ -18,10 +16,14 @@ class Marathonbet extends Connect
         foreach ($this->uries as $key => $uri) {
             $params = $uri['params'];
             /*$response = $this->connect($uri['uri'], false, $params);
-            file_put_contents($GLOBALS['root_dir'].'/data/logs/example.html', $response);
-            $dom = HtmlDomParser::str_get_html($response);*/
-            $dom = HtmlDomParser::file_get_html($GLOBALS['root_dir'].'/data/logs/example.html');
-            echo '<pre>' . var_dump(get_class($dom)) . '</pre>'; die();
+            file_put_contents($GLOBALS['root_dir'].'/data/logs/example.html', $response);*/
+            
+            $response = file_get_contents($GLOBALS['root_dir'].'/data/logs/example.html');
+            $dom = new \DOMDocument();
+            $dom->loadHTML($response);
+            
+            $links = $dom->getElementsByTagName('a');
+            file_put_contents($GLOBALS['root_dir'].'/data/logs/logger.log', print_r($links, 1 ) . "\n", FILE_APPEND);
         }        
     }
 }

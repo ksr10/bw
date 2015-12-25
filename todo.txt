@@ -13,10 +13,13 @@ echo '<pre>' . var_dump() . '</pre>'; die();
 2) Configure angular application use the same domain 30m
 3) Configure route to run from console 30m 
 4) Configure Bw library from vendor folder, configure error exception 30m
-5) Create base connection curl functionality 13.50
+5) Create base connection curl functionality 2h 30m
 
-2h 30m
+5h
 
+
+
+https://www.marathonbet.com/en/prematchMenuItem.htm?nodeId=11&menuName=popularSport&_=1451052612417
 
 
 links
