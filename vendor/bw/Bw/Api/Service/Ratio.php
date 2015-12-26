@@ -22,6 +22,16 @@ class Ratio
             }
             
             $service->dispatchRatio();
+            $data = $service->getRatioData();
+            
+            $this->saveSiteRatio($data);
+        }
+    }
+    
+    public function saveSiteRatio($data)
+    {
+        foreach ($data as $item) {
+            file_put_contents($GLOBALS['root_dir'].'/data/logs/logger.log', print_r($item, 1 ) . "\n", FILE_APPEND); die();
         }
     }
 }
