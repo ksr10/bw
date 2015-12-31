@@ -17,9 +17,9 @@ echo '<pre>' . var_dump() . '</pre>'; die();
 5) Create base connection curl functionality 2h 30m
 6) Add some classes of zend library 30m
 7) Create parser football championships 45m  
-8) Create parser championship events 17.40 - 
+8) Create parser championship events 2h 15m
 
-6h 15m
+8h 30m
 
 DO NOT FORGET TO MAKE PUSH !!!
 
