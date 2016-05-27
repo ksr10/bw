@@ -4,6 +4,8 @@ use \Slim\Slim;
 
 require 'vendor/autoload.php';
 
+define('ROOT_DIR', __DIR__);
+
 $app = new Slim(array(
     'debug' => true,
     'mode' => 'development',
@@ -11,6 +13,5 @@ $app = new Slim(array(
 ));
 
 require './routes/angular.php';
-require './routes/ratio.php';
 
 $app->run();

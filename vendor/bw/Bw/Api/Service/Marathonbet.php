@@ -7,7 +7,8 @@ use Zend\Dom\Query;
 class Marathonbet extends Connect
 {
     const LEAG_BLOCK = 'ul li a';    
-    const EVENTS_MAIN_BLOCK = '.main-block-events';
+    //const EVENTS_MAIN_BLOCK = '.main-block-events';
+    const EVENTS_MAIN_BLOCK = '.grid-main';
     const LEAGUE_COUNTRY_BLOCK = '.category-header .category-label span';
     const LEAGUE_EVENT_BLOCK = '.foot-market tr.event-header';
     const TEAMS_BLOCK = '.command';
@@ -23,7 +24,8 @@ class Marathonbet extends Connect
     protected $ratioData = array();
     
     protected $forbiddenLeagueNameParts = array(
-        'Specials', 'UEFA', 'FIFA'
+        'Specials', 'UEFA', 'FIFA', 'AFC', 'Copa',
+        'Friendlies', 'International', 'UAE', 'Women', 'OFC'
     );
     
     protected $uries = array(
@@ -66,7 +68,7 @@ class Marathonbet extends Connect
     {
         $result = array();
         
-        foreach ($leagues as $league) {
+        foreach ($leagues as $index => $league) {
             $urlParts = explode('?', $league['link']);
             $leagueUrl = self::BASE_URL . array_shift($urlParts);
             
@@ -85,8 +87,8 @@ class Marathonbet extends Connect
             
             /*$response = $this->connect($leagueUrl, false, $params);
             $this->body = $response->getBody();
-            file_put_contents($GLOBALS['root_dir'].'/data/logs/example2.html', $this->body);*/
-            $this->body = file_get_contents($GLOBALS['root_dir'].'/data/logs/example2.html');
+            file_put_contents($GLOBALS['root_dir'].'/data/logs/example2'.$index.'.html', $this->body);*/
+            $this->body = file_get_contents($GLOBALS['root_dir'].'/data/logs/example2'.$index.'.html');
             
             $this->dom = new Query($this->body);
             $mainBlockNodeList = $this->dom->execute(self::EVENTS_MAIN_BLOCK);
@@ -102,14 +104,17 @@ class Marathonbet extends Connect
                         
             $leagueData = array(
                 'country' => rtrim(array_shift($leagueAndCountryArr), '.'),
-                'league_name' => array_shift($leagueAndCountryArr)
+                'league_name' => rtrim(array_shift($leagueAndCountryArr), '.')
             );
             
             $leagueEventsList = $newDom->execute(self::LEAGUE_EVENT_BLOCK);
             $leagueData['events'] = $this->getLeagueEvents($leagueEventsList);
                                     
             $result[] = $leagueData;
-            break;
+            
+            /*if ($index === 2) {
+                break;
+            }   */         
         }
         
         return $result;
@@ -133,7 +138,7 @@ class Marathonbet extends Connect
             
             $dateNodeList = $newDom->execute(self::DATE_BLOCK);
             $dateNode = $dateNodeList->rewind();
-            $eventData['event_date'] = $this->removeSpaces($dateNode->nodeValue);
+            $eventData['event_date'] = $this->convertTime($this->removeSpaces($dateNode->nodeValue));
             
             $ratiosNodeList = $newDom->execute(self::RATIOS_BLOCK);
             $ratios = $this->getEventRatios($ratiosNodeList);
@@ -169,7 +174,8 @@ class Marathonbet extends Connect
     protected function getEventTeams($teamsNode) 
     {
         $newDom = $this->getSearchArea($teamsNode);
-        $teamsNodeList = $newDom->execute('div');
+        //$teamsNodeList = $newDom->execute('div');
+        $teamsNodeList = $newDom->execute('div.nowrap');        
         $teams = array();
         
         foreach ($teamsNodeList as $node) {
@@ -187,9 +193,8 @@ class Marathonbet extends Connect
             $leagueName = $this->removeSpaces($node->nodeValue);
             
             $found = false;
-            
             foreach ($this->forbiddenLeagueNameParts as $part) {
-                if (false !== strpos($leagueName, $part)) {
+                if (false !== strpos($leagueName, $part)) {                    
                     $found = true;
                 }
             }
@@ -223,5 +228,24 @@ class Marathonbet extends Connect
    public function getRatioData()
    {
        return $this->ratioData;
+   }
+   
+   protected function convertTime($time)
+   {
+       $parts = explode(' ', $time);
+       $dateTime = null;
+       
+       if (count($parts) === 3) {
+           $monthNumber = date('n', strtotime($parts[1]));
+           $year = date('Y');
+           $dateTime = $parts[0].'-'.$monthNumber.'-'.$year.' '.$parts[2];           
+       } else if (count($parts) === 1) {
+           $date = date('Y-m-d');
+           $dateTime = $date.' '.$parts[0];
+       } else {
+           throw new Exception('Date format changed!');           
+       }
+       
+       return date('Y-m-d H:i:s', strtotime($dateTime));     
    }
 }

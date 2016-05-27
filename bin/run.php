@@ -33,5 +33,6 @@ $app->error(function (\Exception $e) use ($app) {
 });
 
 require './routes/ratio.php';
+require './routes/rule.php';
 
 $app->run();
