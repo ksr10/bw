@@ -4,19 +4,11 @@ namespace Bw\Common;
 
 class Db
 {
-    static protected $instance;
-    
     protected $connected = false;
     
     protected $writeConnection;
     
-    protected $readConnection;
-
-
-    public static function i()
-    {
-        return isset(static::$instance) ? static::$instance : (static::$instance = new static());
-    }
+    protected $readConnection;    
     
     public function setConfig($settings)
     {

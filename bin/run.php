@@ -34,5 +34,7 @@ $app->error(function (\Exception $e) use ($app) {
 
 require './routes/ratio.php';
 require './routes/rule.php';
+require './routes/bet.php';
+require './routes/result.php';
 
 $app->run();

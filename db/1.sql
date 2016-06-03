@@ -34,3 +34,14 @@ CREATE TABLE `virtual_users` (
   `status` ENUM('active', 'lost') DEFAULT 'active' NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `bets` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `rule_id` INT(11) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `ratio_id` INT(11) NOT NULL,
+  `bet_amount` DECIMAL(12,4) NOT NULL,
+  `result` INT(11) NOT NULL,
+  `event_data` TEXT,  
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;

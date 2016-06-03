@@ -12,12 +12,15 @@ class Ratio extends Base
     protected $sites = array(
         'marathonbet' => 'https://www.marathonbet.com'
     );
+    
+    public function __construct() 
+    {
+        parent::__construct();
+        RatioDb::i()->setConfig($this->dbConfig);      
+    }
        
     public function pickupRatio()
-    {
-        $config = $this->loadConfig();
-        RatioDb::i()->setConfig($config);
-        
+    {        
         foreach ($this->sites as $name => $uri) {
             switch ($name) {
                 case self::MARATHONBET_SITE:
@@ -54,5 +57,13 @@ class Ratio extends Base
                 }                
             }            
         }
+    }
+    
+    public function getRatioForBet($from, $to)
+    {
+        $from = $from - 1;
+        $to = $to - 1;
+        
+        return RatioDb::i()->getRatioForBet($from, $to);
     }
 }

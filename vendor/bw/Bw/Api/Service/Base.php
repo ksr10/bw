@@ -4,6 +4,13 @@ namespace Bw\Api\Service;
 
 class Base
 {    
+    protected $dbConfig;
+    
+    public function __construct() 
+    {
+        $this->dbConfig = $this->loadConfig();        
+    }
+    
     public function loadConfig()
     {
         $localConfig = array();

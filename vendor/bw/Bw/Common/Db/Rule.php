@@ -9,6 +9,13 @@ class Rule extends Db
     const RULETABLENAME = 'rules';    
     const USERTABLENAME = 'virtual_users';   
     
+    static protected $instance;
+    
+    public static function i()
+    {
+        return isset(static::$instance) ? static::$instance : (static::$instance = new static());
+    }
+    
     public function getRules()
     {
         $readConnection = $this->getReadConnection(); 
@@ -42,5 +49,20 @@ class Rule extends Db
         }
         
         return $userId;
+    }
+    
+    public function getUsersByRule($ruleId)
+    {
+        $readConnection = $this->getReadConnection(); 
+        $tableName = self::USERTABLENAME;
+        $result = array();
+               
+        $statement = $readConnection->prepare("SELECT * FROM $tableName WHERE rule_id = $ruleId ORDER BY id");
+        
+        if ($statement->execute()) {
+            $result = $statement->fetchAll(\PDO::FETCH_ASSOC);            
+        }
+        
+        return $result;
     }
 }

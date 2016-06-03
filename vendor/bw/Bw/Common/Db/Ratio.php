@@ -6,9 +6,15 @@ use Bw\Common\Db;
 
 class Ratio extends Db
 {
-    const LEAGETABLENAME = 'leagues';
-    
+    const LEAGETABLENAME = 'leagues';    
     const RATIOTABLENAME = 'ratios';
+    
+    static protected $instance;
+    
+    public static function i()
+    {
+        return isset(static::$instance) ? static::$instance : (static::$instance = new static());
+    }
     
     public function saveLeague($item)
     {
@@ -80,5 +86,20 @@ class Ratio extends Db
         }     
         
         return $ratioId;
+    }
+    
+    public function getRatioForBet($from, $to)
+    {
+        $readConnection = $this->getReadConnection(); 
+        $tableName = self::RATIOTABLENAME;
+        $result = array();
+               
+        $statement = $readConnection->prepare("SELECT * FROM $tableName WHERE host_team_odds < $to AND host_team_odds >= $from  ORDER BY RAND() LIMIT 1");
+        
+        if ($statement->execute()) {
+            $result = $statement->fetch(\PDO::FETCH_ASSOC);            
+        }
+        
+        return $result;
     }
 }

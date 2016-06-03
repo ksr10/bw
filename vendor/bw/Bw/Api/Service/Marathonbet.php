@@ -15,6 +15,8 @@ class Marathonbet extends Connect
     const DATE_BLOCK = '.date';
     const RATIOS_BLOCK = '.price';
     
+    CONST RESULT_PAGES_BLOCK = '.page-navigator a';
+    
     const BASE_URL = 'https://www.marathonbet.com';
     
     protected $body = null; 
@@ -25,7 +27,8 @@ class Marathonbet extends Connect
     
     protected $forbiddenLeagueNameParts = array(
         'Specials', 'UEFA', 'FIFA', 'AFC', 'Copa',
-        'Friendlies', 'International', 'UAE', 'Women', 'OFC'
+        'Friendlies', 'International', 'UAE', 'Women', 'OFC',
+        'CAF'
     );
     
     protected $uries = array(
@@ -37,17 +40,31 @@ class Marathonbet extends Connect
                '_' => '1451052612417'
            )
        )
+    );
+    
+    protected $resultUries = array(
+       'base' => array(
+           'uri' => 'https://www.marathonbet.com/en/results.htm',
+           'params' => array(
+               'form_name' => 'form',
+               '1762798' => 'on',
+               'searchQuery' => '',
+               'dateFilterSelector' => 'RANGE',
+               'fromDate' => '',
+               'toDate' => '',
+           )
+       )
    );
     
     public function dispatchRatio()
     {
         foreach ($this->uries as $key => $uri) {
             $params = $uri['params'];
-            /*$response = $this->connect($uri['uri'], false, $params);
+            $response = $this->connect($uri['uri'], false, $params);
             $this->body = $response->getBody();
-            file_put_contents($GLOBALS['root_dir'].'/data/logs/example.html', $this->body);*/
+            file_put_contents($GLOBALS['root_dir'].'/data/logs/ratio/base.html', $this->body);
             
-            $this->body = file_get_contents($GLOBALS['root_dir'].'/data/logs/example.html');
+            //$this->body = file_get_contents($GLOBALS['root_dir'].'/data/logs/ratio/base.html');
             $this->dom = new Query($this->body);
             
             $this->parseAll();
@@ -85,10 +102,10 @@ class Marathonbet extends Connect
                 $params[$key] = $value;
             }
             
-            /*$response = $this->connect($leagueUrl, false, $params);
+            $response = $this->connect($leagueUrl, false, $params);
             $this->body = $response->getBody();
-            file_put_contents($GLOBALS['root_dir'].'/data/logs/example2'.$index.'.html', $this->body);*/
-            $this->body = file_get_contents($GLOBALS['root_dir'].'/data/logs/example2'.$index.'.html');
+            file_put_contents($GLOBALS['root_dir'].'/data/logs/ratio/ratio'.$index.'.html', $this->body);
+            //$this->body = file_get_contents($GLOBALS['root_dir'].'/data/logs/ratio/ratio'.$index.'.html');
             
             $this->dom = new Query($this->body);
             $mainBlockNodeList = $this->dom->execute(self::EVENTS_MAIN_BLOCK);
@@ -247,5 +264,45 @@ class Marathonbet extends Connect
        }
        
        return date('Y-m-d H:i:s', strtotime($dateTime));     
+   }
+   
+   public function dispatchResult()
+   {
+       foreach ($this->resultUries as $key => $uri) {
+           $now = date('d.m.Y');
+           $fromDate = date('d.m.Y', strtotime($now . ' -2 day'));
+           
+           if (isset($uri['params']['toDate'])) {
+               $uri['params']['toDate'] = $now;
+           }
+           
+           if (isset($uri['params']['fromDate'])) {
+               $uri['params']['fromDate'] = $fromDate;
+           }
+           
+           /*$response = $this->connect($uri['uri'], false, $uri['params']);
+           $this->body = $response->getBody();
+           file_put_contents($GLOBALS['root_dir'].'/data/logs/result/base.html', $this->body);*/
+            
+           $this->body = file_get_contents($GLOBALS['root_dir'].'/data/logs/result/base.html');
+           $this->dom = new Query($this->body);
+            
+           $this->parseResultAll();
+       }       
+   }
+   
+   protected function parseResultAll()
+   {       
+        $pagesNodeList = $this->dom->execute(self::RESULT_PAGES_BLOCK);
+        $pages = $this->parseResultPages($pagesNodeList);
+        
+        /*$pagesResults = $this->parseResults($pages);
+        
+        $this->eventResults = $pagesResults;  */
+   }
+   
+   protected function parseResultPages($pagesNodeList)
+   {
+       
    }
 }

@@ -12,11 +12,14 @@ class Rule extends Base
         3000, 6000, 12000, 24000, 48000
     );
     
-    public function generateUsers() 
+    public function __construct() 
     {
-        $config = $this->loadConfig();
-        RuleDb::i()->setConfig($config);
-        
+        parent::__construct();
+        RuleDb::i()->setConfig($this->dbConfig);      
+    }
+    
+    public function generateUsers() 
+    {        
         $rules = RuleDb::i()->getRules();
         
         foreach ($rules as $rule) {
@@ -35,5 +38,15 @@ class Rule extends Base
                 }
             }            
         }
+    }
+    
+    public function getRules()
+    {
+        return RuleDb::i()->getRules();
+    }
+    
+    public function getUsersByRule($ruleId)
+    {
+        return RuleDb::i()->getUsersByRule($ruleId);
     }
 }
