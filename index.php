@@ -12,6 +12,13 @@ $app = new Slim(array(
     'templates.path' => './templates'
 ));
 
+$GLOBALS['root_dir'] = getcwd();
+
 require './routes/angular.php';
+require './routes/bet.php';
 
 $app->run();
+
+if ($isXHR) {
+    //$app->response->headers->set('Content-Type', 'application/json');
+}

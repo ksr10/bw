@@ -45,8 +45,21 @@ class Rule extends Base
         return RuleDb::i()->getRules();
     }
     
-    public function getUsersByRule($ruleId)
+    public function getUsersByRule($ruleId, $active = true)
     {
-        return RuleDb::i()->getUsersByRule($ruleId);
+        return RuleDb::i()->getUsersByRule($ruleId, $active);
+    }
+    
+    public function updateUserActive()
+    {
+        $activeUsers = RuleDb::i()->getUsers();
+        
+        foreach ($activeUsers as $user) {
+            $totalAmount  = (float) $user['total_amount'];
+            
+            if ($totalAmount < 0) {
+                RuleDb::i()->updateUserActive($user['id']);
+            }
+        }
     }
 }

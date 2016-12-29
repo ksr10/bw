@@ -1,0 +1,63 @@
+/*region #COMMON STYLES*/
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: $base;
+  font: {
+    family: $regular;
+    size: 16px;
+  }
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  @media #{$mobile} {
+    font: {
+      size: 14px;
+    }
+    line-height: 1.25;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+.logo {
+  float: left;
+
+  a,
+  img {
+    display: block;
+  }
+}
+
+.container {
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1170px;
+
+  &-inner {
+    margin: auto;
+    max-width: 940px;
+  }
+}
+
+.content {
+  padding: 39px 0 $footer-h + 20;
+
+  @media #{$mobile} {
+    padding-top: 15px;
+    padding-bottom: 120px;
+  }
+}
+
+/*endregion #COMMON STYLES*/

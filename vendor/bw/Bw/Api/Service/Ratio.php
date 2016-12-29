@@ -8,6 +8,8 @@ use Bw\Common\Db\Ratio as RatioDb;
 class Ratio extends Base
 {
     const MARATHONBET_SITE = 'marathonbet';
+    const RATIO_TIME = ' +1 day';
+    //const RATIO_TIME = ' +3 day';
     
     protected $sites = array(
         'marathonbet' => 'https://www.marathonbet.com'
@@ -49,7 +51,7 @@ class Ratio extends Base
                 foreach ($item['events'] as $event) {
                     $eventDate = strtotime($event['event_date']);  
                     $now = date('Y-m-d H:i:s');
-                    $limitDate = strtotime(date('Y-m-d H:i:s', strtotime($now . ' +1 day')));
+                    $limitDate = strtotime(date('Y-m-d H:i:s', strtotime($now . self::RATIO_TIME)));
                     
                     if ($eventDate < $limitDate) {                        
                         $ratioId = RatioDb::i()->saveRatio($event, $leagueId);
@@ -65,5 +67,15 @@ class Ratio extends Base
         $to = $to - 1;
         
         return RatioDb::i()->getRatioForBet($from, $to);
+    }
+    
+    public function getRatioByTeams($hostTeam, $guestTeam)
+    {
+        return RatioDb::i()->getRatioByTeams($hostTeam, $guestTeam);
+    }
+    
+    public function deleteAllRatios()
+    {
+        return RatioDb::i()->deleteAllRatios();
     }
 }

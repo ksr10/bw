@@ -45,3 +45,14 @@ CREATE TABLE `bets` (
   `event_data` TEXT,  
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `results` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ratio_id` INT(11) NOT NULL,
+  `host_team` VARCHAR(255) NOT NULL,
+  `guest_team` VARCHAR(255) NOT NULL,
+  `event_date` timestamp NOT NULL,
+  `score` VARCHAR(255) NOT NULL,
+  `status` ENUM('new', 'used'),
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;

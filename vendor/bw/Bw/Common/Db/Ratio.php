@@ -8,6 +8,7 @@ class Ratio extends Db
 {
     const LEAGETABLENAME = 'leagues';    
     const RATIOTABLENAME = 'ratios';
+    const LEAGUETABLENAME = 'leagues';   
     
     static protected $instance;
     
@@ -92,12 +93,60 @@ class Ratio extends Db
     {
         $readConnection = $this->getReadConnection(); 
         $tableName = self::RATIOTABLENAME;
-        $result = array();
-               
-        $statement = $readConnection->prepare("SELECT * FROM $tableName WHERE host_team_odds < $to AND host_team_odds >= $from  ORDER BY RAND() LIMIT 1");
+        $leagueTableName = self::LEAGUETABLENAME;
+        $result = null;
+        
+        $query = "SELECT r.*, l.id AS leagueId, l.name AS leagueName, l.country AS leagueCountry  FROM $tableName AS r";
+        $query .= " LEFT JOIN $leagueTableName AS l ON r.league_id = l.id";
+        $query .= " WHERE host_team_odds < $to AND host_team_odds >= $from ORDER BY RAND() LIMIT 1";
+        
+        $statement = $readConnection->prepare($query);
         
         if ($statement->execute()) {
             $result = $statement->fetch(\PDO::FETCH_ASSOC);            
+        }
+        
+        return $result;
+    }
+    
+    public function getRatioByTeams($hostTeam, $guestTeam)
+    {
+        $readConnection = $this->getReadConnection(); 
+        $tableName = self::RATIOTABLENAME;
+        $result = null;
+               
+        $statement = $readConnection->prepare("SELECT * FROM $tableName WHERE host_team LIKE :hostTeam AND guest_team LIKE :guestteam LIMIT 1");
+        $statement->bindValue(':hostTeam', $hostTeam, \PDO::PARAM_STR);
+        $statement->bindValue(':guestteam', $guestTeam, \PDO::PARAM_STR);
+        
+        if ($statement->execute()) {
+            $result = $statement->fetch(\PDO::FETCH_ASSOC);            
+        }
+        
+        if (!$result) {
+            $statement = $readConnection->prepare("SELECT * FROM $tableName WHERE host_team LIKE :hostTeam LIMIT 1");
+            $statement->bindValue(':hostTeam', $hostTeam, \PDO::PARAM_STR);
+            
+            if ($statement->execute()) {
+                $result = $statement->fetch(\PDO::FETCH_ASSOC);            
+            }
+        }
+        
+        return $result;
+    }
+    
+    public function deleteAllRatios()
+    {        
+        $tableName = self::RATIOTABLENAME;
+        $result = false;
+        
+        $writeConnection = $this->getWriteConnection();
+        $query = "DELETE FROM $tableName";
+        
+        $statement = $writeConnection->prepare($query);
+        
+        if ($statement->execute()) {
+            $result = true;            
         }
         
         return $result;

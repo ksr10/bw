@@ -7,6 +7,7 @@ $app->get('/pickup-result', function () use ($app) {
     
     try {
         $resultService->pickupResult();
+        echo 'Finished!';
     } catch (\Exception $e) {
         file_put_contents($GLOBALS['root_dir'].'/data/logs/exceptions.log', print_r($e->getMessage(), 1 ) . "\n", FILE_APPEND);
     }

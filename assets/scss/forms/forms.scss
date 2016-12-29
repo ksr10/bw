@@ -1,0 +1,723 @@
+/*region #FORMS*/
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #4f6481;
+  font: {
+    family: inherit;
+    size: inherit;
+  }
+  line-height: inherit;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #4f6481;
+  font: {
+    family: inherit;
+    size: inherit;
+  }
+  line-height: inherit;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #4f6481;
+  font: {
+    family: inherit;
+    size: inherit;
+  }
+  line-height: inherit;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #4f6481;
+  font: {
+    family: inherit;
+    size: inherit;
+  }
+  line-height: inherit;
+}
+
+input,
+button,
+select,
+textarea,
+a {
+  &:focus,
+  &:active:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+input,
+select,
+textarea {
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.checkboxes-list {
+  @media #{$desktop} {
+    padding-right: 80px;
+  }
+
+  &__item {
+    height: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.checkbox-container {
+  $size: 20px;
+  overflow: hidden;
+
+  input[type="checkbox"] {
+    left: -9999px;
+    position: absolute;
+
+    & + label {
+      color: #242424;
+      cursor: pointer;
+      display: inline-block;
+      font: {
+        family: $bold;
+        size: 14px;
+      }
+      line-height: 20px;
+      padding-left: 30px;
+      position: relative;
+
+      &:before {
+        background: url("#{$img-path}/checkbox.png") no-repeat 0 0;
+        background-size: $size;
+        content: "";
+        left: 0;
+        height: $size;
+        position: absolute;
+        top: 0;
+        width: $size;
+      }
+    }
+
+    &:checked {
+      & + label {
+        &:before {
+          background-position: 0 (-($size));
+        }
+      }
+    }
+  }
+
+  &--blue {
+    input[type="checkbox"] {
+      & + label {
+        color: $blue;
+        font: {
+          size: 16px;
+        }
+        float: left;
+        line-height: 21px;
+        overflow: hidden;
+        padding-left: 39px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: calc(100% - 90px);
+
+        &:before {
+          background: url("#{$img-path}/checkbox--blue.png") no-repeat 0 0;
+          background-size: $size;
+        }
+
+        .fa {
+          color: inherit;
+          margin-right: 9px;
+        }
+
+        & + .price {
+          float: right;
+          overflow: hidden;
+          text-align: right;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 75px;
+        }
+      }
+
+      &:checked {
+        & + label {
+          color: $green;
+
+          & + .price {
+            color: $green;
+          }
+        }
+      }
+    }
+  }
+}
+
+.form__item {
+  @include clearfix;
+  margin: 0 0 29px;
+  position: relative;
+
+  @media #{$mobile} {
+    margin: 0 0 15px;
+    text-align: center;
+    width: 100% !important;
+
+    .form__filed,
+    .selectBox-dropdown {
+      display: block;
+      float: none !important;
+      text-align: center;
+      width: 100% !important;
+    }
+  }
+
+  &-tel {
+    @media #{$desktop} {
+      float: right;
+      position: relative;
+      width: calc(100% - 140px);
+    }
+  }
+
+  &--datepicker {
+    .form__filed {
+      @media #{$desktop} {
+        width: 300px;
+      }
+    }
+  }
+}
+
+.form__filed,
+.selectBox-dropdown {
+  $height: 43px;
+  background-color: $white;
+  border: 1px solid #dcdcdc;
+  color: #5f5f5f;
+  font: {
+    family: $regular;
+    size: 18px;
+  }
+  height: $height;
+  padding: 0 12px;
+  max-width: 100%;
+
+  @media #{$mobile} {
+    $height: 38px;
+    font: {
+      size: 16px;
+    }
+    height: $height;
+    padding: 0 8px;
+  }
+}
+
+.form__label {
+  color: #0f78ab;
+  display: block;
+  font: {
+    family: $bold;
+  }
+  line-height: 30px;
+  width: 100%;
+
+  @media #{$mobile} {
+    font: {
+      size: 16px;
+    }
+  }
+}
+
+.selectBox-dropdown {
+  $height: 43px;
+  border-radius: 0 10px 10px 0;
+  font: {
+    family: $bold;
+  }
+  line-height: $height;
+  padding-right: 52px;
+  position: relative;
+  text-decoration: none !important;
+
+  @media #{$mobile} {
+    $height: 38px;
+    border-radius: 0 6px 6px 0;
+    line-height: $height;
+    padding-right: 38px;
+  }
+
+  a {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+  }
+
+  .selectBox-arrow {
+    background: #b6c8d1 url("#{$img-path}/icons/select_arrows.png") no-repeat center;
+    border-radius: 0 8px 8px 0;
+    display: block;
+    height: 41px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+
+    @media #{$mobile} {
+      border-radius: 0 6px 6px 0;
+      background-size: 10px;
+      height: 36px;
+      width: 30px;
+    }
+  }
+
+  &-menu {
+    background: $white;
+    border: 1px solid #dcdcdc;
+    box-shadow: none;
+    //left: 0;
+    max-height: 133px !important;
+    //margin-left: -1px;
+    position: absolute;
+    //top: 100% !important;
+    right: 0;
+    z-index: 100;
+    overflow-y: auto;
+
+    @media #{$mobile} {
+      background-size: 10px;
+    }
+
+    li {
+      @include transition(background, .4s, color, .4s);
+      height: 43px;
+      line-height: 43px;
+
+      & + li {
+        border-top: 1px solid #dcdcdc;
+      }
+
+      &:hover {
+        background: #b6c8d1;
+        color: $white;
+      }
+
+      a {
+        display: block;
+        color: inherit;
+        padding: 0 12px;
+        text-decoration: none !important;
+      }
+    }
+  }
+}
+
+.form {
+  @include clearfix;
+
+  i {
+    &[class^="icons"]:not(.icons-save) {
+      left: 10px;
+      margin-top: -7px;
+      position: absolute;
+      top: 50%;
+    }
+  }
+
+
+
+  &--personal-details {
+    margin: 0 -15px;
+    text-align: center;
+
+    @media #{$mobile} {
+      .icons-flag-uk {
+        display: none;
+      }
+    }
+
+    .form__inner {
+      background: $light-gray;
+      border-radius: 8px;
+      @include clearfix;
+      padding-top: 29px;
+      padding-left: 22px;
+
+      @media #{$mobile} {
+        border-radius: 0;
+        padding: 0;
+      }
+    }
+
+    .form__item {
+      float: left;
+      padding: 0 10px;
+      width: 48.5%;
+    }
+
+    .form__filed,
+    .selectBox-dropdown {
+      float: right;
+      width: calc(100% - 140px) !important;
+
+      &--tel {
+        @media #{$desktop} {
+          padding-left: 52px;
+        }
+        width: 100% !important;
+
+        @media #{$mobile} {
+          display: none;
+        }
+      }
+
+      @media #{$mobile} {
+        display: inline-block;
+        width: 275px !important;
+      }
+    }
+
+    span {
+      &.form__filed {
+        background: none;
+        border-color: transparent;
+        line-height: 43px;
+        text-align: left;
+      }
+    }
+
+    .selectBox-dropdown {
+      font: {
+        family: $regular;
+      }
+    }
+
+    .form__label {
+      $height: 43px;
+      float: left;
+      line-height: $height;
+      width: 140px;
+
+      @media #{$mobile} {
+        display: block;
+        float: none;
+        line-height: 32px;
+        width: 100%;
+      }
+    }
+  }
+
+  &--travellers,
+  &--contact {
+    .form__item,
+    .form__item-group {
+      @media #{$desktop} {
+        float: left;
+        margin-right: 29px;
+      }
+    }
+
+    .form__filed,
+    .form__item--datepicker .form__filed,
+    .datepicker {
+      display: inline-block;
+      width: 275px;
+
+      @media #{$desktop} {
+        width: 220px;
+      }
+    }
+  }
+
+  &--travellers {
+    .selectBox-dropdown {
+      width: 120px;
+
+      @media #{$mobile} {
+        display: inline-block;
+        width: 275px !important;
+      }
+    }
+
+    .clearfix {
+      & + .clearfix {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &--contact {
+    text-align: center;
+
+    .form__item {
+      &--wide,
+      &-group {
+        @media #{$desktop} {
+          width: 363px;
+        }
+      }
+
+      &-group {
+        .form__item {
+          margin: 30px 0 29px;
+          width: 176px;
+
+          @media #{$mobile} {
+            margin: 16px 0;
+          }
+
+          &:first-child {
+            @media #{$desktop} {
+              margin-right: 11px;
+              margin-top: 0;
+            }
+          }
+        }
+
+        .btn {
+          @media #{$desktop} {
+            height: 43px;
+            width: 100%;
+          }
+        }
+      }
+
+      &--wide {
+        .form__filed,
+        .selectBox-dropdown {
+          @media #{$desktop} {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+
+    .clearfix {
+      display: inline-block;
+
+      &:first-child {
+        @media #{$desktop} {
+          margin-left: 12px;
+
+          .form__item {
+            margin-right: 47px;
+          }
+        }
+      }
+    }
+  }
+
+  &--send-documents {
+    margin: 22px 0 0;
+
+    .form__filed,
+    .btn {
+      float: none;
+      height: 40px;
+      margin: 0 2px;
+      width: 204px;
+    }
+
+    .form__filed {
+      font: {
+        size: 16px;
+      }
+
+      @media #{$mobile} {
+        margin: 0 0 16px;
+      }
+    }
+  }
+
+  &--login {
+    .form__item {
+      margin: auto;
+      overflow: hidden;
+      width: 300px;
+
+      & + .form__item {
+        margin-top: 22px;
+        margin-bottom: 20px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .form__label,
+    .form__filed {
+      display: block;
+      float: none;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &--choose-date {
+    margin: 0 auto 39px;
+    max-width: 640px;
+  }
+}
+
+.actions {
+  margin: 31px 0 0;
+  text-align: center;
+
+  @media #{$mobile} {
+    margin: 20px 0 0;
+  }
+
+  .btn {
+    margin: 0 6px;
+  }
+}
+
+.validation-message {
+  border-bottom: 2px solid;
+  padding: 11px;
+
+  &--success {
+    background: #eeffe7;
+    border-color: #9ab69a;
+    color: #356e36;
+  }
+
+  .send-documents & {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.datepicker {
+  position: relative;
+
+  .icons-datepicker {
+    display: block;
+    position: absolute;
+    right: 11px;
+    top: 6px;
+
+    @media #{$desktop} {
+      top: 10px;
+    }
+  }
+}
+
+.error-message {
+  background-color: #fff0f0;
+  color: #a94442;
+  box-shadow: 0 0 0 1px #dbb1b1 inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 0.2857rem;
+  margin-bottom: 10px;
+}
+.error-message-form {
+  color: #a94442;
+}
+.form .error input.form__filed {
+  border-color: #a94442;
+}
+.error label {
+  color: #a94442;
+}
+.table--questions .error .table__text {
+  color: #a94442;
+}
+.scheme-icon-active, .destination-icon-active, .group-icon-active {
+  opacity: 1;
+}
+.scheme-icon-inactive, .destination-icon-inactive, .group-icon-inactive {
+  opacity: 0.5;
+}
+.schemeType-info-visible, .destination-info-visible, .group-info-visible {
+  margin-bottom: 20px;
+  background: #efefef;
+  box-shadow: 0 0 0 1px rgba(39, 41, 43, 0.15) inset, 0 0 0 0 transparent;
+  padding: 10px;
+  display: none;
+  border-radius: 0.2857rem;
+  text-align: center;
+}
+.ui-widget-header {
+  background: #0f78ab;
+  border: 1px solid #0f78ab;
+}
+.stepCurrent {
+  background: #0f78ab;
+  cursor: default;
+}
+.travellers-count .error, .travellers-age .error, #personForm .error {
+  border-color: red;
+}
+
+.packages .annualTrip {
+  height: auto;
+}
+select {
+  display: none;
+}
+#productFeatures {
+  font-size: 17px;
+  margin-top: 20px;
+  display: none;
+}
+.features-title {
+  margin-bottom: 10px;
+  padding-right: 8px;
+  text-align: right;
+}
+.product-features-header {
+  background-color: #262f73;
+  color: #ffffff;
+  padding: 3px 0;
+  text-align: center;
+}
+#productFeatures .options-subtitle-left {
+  display: inline-block;
+  width: 48.5%;
+  font-size: 15px;
+}
+#productFeatures .options-subtitle-right {
+  display: inline-block;
+  width: 48.5%;
+  font-size: 15px;
+}
+.option-info {
+  color: #000;
+  display: none;
+  padding: 10px 0 10px 24px;
+  opacity: 0.85;
+}
+.checkboxes-list__item {
+  height: auto;
+}
+.phone-error-msg {
+  display: none;
+  margin-top: 3px;
+  color: #a94442;
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+}
+.address-hint {
+  clear: both;
+}
+.btnSelected {
+  background: #0f78ab;
+}
+.text-before-send p {
+  margin: 0;
+}
+
+/*endregion #FORMS*/

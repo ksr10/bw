@@ -1,0 +1,304 @@
+/*region #TABLES*/
+.table-wrapper {
+  border-radius: 8px;
+  border: 1px solid $light-gray;
+  overflow: hidden;
+  overflow-x: auto;
+
+  &--no-border {
+    border-radius: 0;
+    border: 0;
+  }
+
+  &--certificate {
+    border-color: #dcdcdc;
+
+    & + h3 {
+      margin: 22px 13px;
+    }
+  }
+}
+
+.table {
+  table-layout: fixed;
+  width: 938px;
+
+  .wrapp--gray & {
+    width: 898px;
+  }
+
+  thead {
+    tr {
+      background: $light-gray;
+
+      th {
+        color: $blue;
+        font: {
+          family: $bold;
+        }
+        height: 61px;
+        line-height: 1.25;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        background: $white;
+        height: 70px;
+      }
+
+      & + tr {
+        border-top: 1px solid #dcdcdc;
+      }
+
+      .table-wrapper--certificate & {
+        &:first-child {
+          border-top: 1px solid #dcdcdc;
+        }
+      }
+    }
+  }
+
+  thead,
+  tbody {
+    tr {
+      td,
+      th {
+        padding: 0 20px;
+
+        @media #{$mobile} {
+          height: 48px;
+          padding: 0 12px;
+        }
+      }
+
+      td:not(:first-child),
+      th:not(:first-child) {
+        border-left: 1px solid #dcdcdc;
+      }
+    }
+  }
+
+  .btn {
+    min-width: 75px;
+  }
+
+  &__number {
+    color: $white;
+    float: left;
+
+    strong {
+      background: #b6c8d1;
+      border-radius: 50%;
+      display: inline-block;
+      $size: 25px;
+      height: $size;
+      line-height: $size;
+      text-align: center;
+      width: $size;
+
+      @media #{$mobile} {
+        $size: 20px;
+        font: {
+          size: 12px;
+        }
+        height: $size;
+        line-height: $size;
+        width: $size;
+      }
+
+    }
+
+    & + .table__text {
+      display: block;
+      margin-left: 42px;
+
+      @media #{$mobile} {
+        margin-left: 35px;
+      }
+    }
+  }
+
+  &--questions {
+    margin: 0 0 30px;
+    width: 100%;
+
+    @media #{$mobile} {
+      display: block;
+
+      tr,
+      td,
+      tbody {
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+
+      .accept-btn {
+        margin: 0 0 15px;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #d4d4d4;
+
+        @media #{$mobile} {
+          margin-top: -1px;
+        }
+
+        td {
+          border: 0 !important;
+          height: auto;
+          padding: 18px;
+
+          @media #{$mobile} {
+            padding: 10px 15px;
+          }
+
+          &:first-child {
+            @media #{$desktop} {
+              width: 70%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--packages {
+    thead,
+    tbody {
+      tr {
+        td,
+        th {
+          border: 0 !important;
+          height: auto;
+          padding: 0;
+          text-transform: capitalize;
+
+          .fl-l {
+            float: left !important;
+            padding: 0 3px;
+            text-align: center;
+            width: 50%;
+          }
+
+          &:not(:first-child) {
+            padding: 0 3px;
+            vertical-align: top;
+            width: 225px;
+          }
+        }
+
+        .economy {
+          background: #0f4dab;
+        }
+
+        .standard {
+          background: #0c3f8b;
+        }
+
+        .excel {
+          background: #09306a;
+        }
+      }
+    }
+
+    thead {
+      tr {
+        background: none;
+
+        th {
+          color: $white;
+          padding-bottom: 1px;
+          text-align: center;
+
+          h3 {
+            color: inherit;
+            margin: 0;
+          }
+
+          & > div {
+            border-radius: 11px 11px 0 0;
+            height: 54px;
+            padding-top: 7px;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        & + tr {
+          border-top: 1px solid #dcdcdc;
+        }
+
+        td {
+          height: 50px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          position: relative;
+
+          &:not(:first-child) > div {
+            background: #f1f1f1;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            position: absolute;
+            left: 3px;
+            right: 3px;
+            top: 0;
+            bottom: 0;
+          }
+        }
+
+        &:last-child {
+          td {
+            &:not(:first-child) > div {
+              border-radius: 0 0 11px 11px;
+            }
+          }
+        }
+      }
+
+      ul {
+        li {
+          padding-right: 25px;
+          position: relative;
+
+          .tooltip {
+            position: absolute;
+            right: 5px;
+            top: 1px;
+          }
+
+          & > ul {
+            margin-right: -25px;
+          }
+        }
+      }
+    }
+
+    .table__number {
+      strong {
+        background: none;
+        color: #5f5f5f;
+        width: auto;
+      }
+
+      & + .table__text {
+        margin-left: 25px;
+      }
+    }
+  }
+
+  .tooltip {
+    .fa {
+      color: $blue;
+    }
+  }
+}
+
+/*endregion #TABLES*/

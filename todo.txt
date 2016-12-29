@@ -6,14 +6,26 @@ C:\xampp\htdocs\netbeans\bw\bw
 C:\xampp\htdocs\bw\bw
 php -f bin/run.php generate-users
 
+SELECT * FROM virtual_users WHERE rule_id = 4 AND total_origin < 3001 ORDER BY RAND() LIMIT 1;
+SELECT * FROM virtual_users WHERE rule_id = 4 AND total_origin < 6001 AND total_origin > 3000 ORDER BY RAND() LIMIT 1;
+SELECT * FROM virtual_users WHERE rule_id = 4 AND total_origin < 12001 AND total_origin > 6000 ORDER BY RAND() LIMIT 1;
+SELECT * FROM virtual_users WHERE rule_id = 4 AND total_origin < 24001 AND total_origin > 12000 ORDER BY RAND() LIMIT 1;
+SELECT * FROM virtual_users WHERE rule_id = 4 AND total_origin > 24000 ORDER BY RAND() LIMIT 1;
+bogaenko
+
+SELECT * FROM `bets` WHERE `result` = 3;
+DELETE FROM `bets` WHERE `result` = 3;
 DELETE FROM `ratios`;
+
+php -f bin/run.php pickup-result
+php -f bin/run.php calculate-bets
 php -f bin/run.php pickup-ratio
 php -f bin/run.php generate-bets
-php -f bin/run.php pickup-result
 
 
 throw new \Exception('Test exception');
 file_put_contents($GLOBALS['root_dir'].'/data/logs/logger.log', print_r('test', 1 ) . "\n", FILE_APPEND); die();
+file_put_contents($_SERVER['DOCUMENT_ROOT'].'/data/logs/logger.log', print_r('test', 1 ) . "\n", FILE_APPEND);
 echo '<pre>' . var_dump() . '</pre>'; die();
 $statement->debugDumpParams()
 
@@ -29,17 +41,19 @@ $statement->debugDumpParams()
 10) Create functionality for saving leauges and ratios 4h
 11) Create functionality for generating users for different strategies 1h
 12) Create functionality for generating bets 2h
-13) Create functionality for getting result 1h
+13) Create functionality for getting result 4h
+14) Create functionality for calculating bets 3h
+15) Update user status if total amount less 0 30m
+16) Create frontend functionality for view users 3h 30m
+17) Change pickup ratio due to new html of the site 1h
 
-18h
+32h
 
 DO NOT FORGET TO MAKE PUSH !!!
 
 https://www.marathonbet.com/en/prematchMenuItem.htm?nodeId=11&menuName=popularSport&_=1451052612417
 
 https://www.marathonbet.com/en/results.htm?sportMenuMinimized=true&sportMenu1762822Minimized=true&sportMenu1762800Minimized=true&sportMenu1763083Minimized=true&form_name=form&1762798=on&searchQuery=&dateFilterSelector=RANGE&fromDate=02.06.2016&toDate=03.06.2016
-https://www.marathonbet.com/en/results.htm?form_name=form&1762798=on&searchQuery=&dateFilterSelector=RANGE&fromDate=02.06.2016&toDate=03.06.2016
+https://www.marathonbet.com/en/results.htm?form_name=form&1762798=on&searchQuery=&dateFilterSelector=RANGE&fromDate=11.07.2016&toDate=12.07.2016
 
-page=2
 
-links

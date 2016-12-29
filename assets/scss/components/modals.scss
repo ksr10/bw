@@ -1,0 +1,127 @@
+/*region #MODALS*/
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+
+  &.fade {
+    .modal-dialog {
+      -webkit-transition: -webkit-transform .3s ease-out;
+      -o-transition: -o-transform .3s ease-out;
+      transition: transform .3s ease-out;
+      -webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+      -o-transform: translate(0, -25%);
+      transform: translate(0, -25%);
+    }
+  }
+
+  &.in {
+    .modal-dialog {
+      -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      -o-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+
+  &-dialog {
+    margin: 138px auto 30px;
+    position: relative;
+    width: 450px;
+  }
+
+  &-header {
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  &-header,
+  &-body,
+  &-footer {
+    padding: 20px;
+    position: relative;
+    text-align: center;
+  }
+
+  &-title {
+    color: #4f6481;
+    padding: 0 85px;
+  }
+
+  &-content {
+    background-color: $light-gray;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 8px;
+    outline: 0;
+    position: relative;
+    box-shadow: 0 0 20px rgba(#2d3847, .5);
+  }
+
+  &-footer {
+    border-top: 1px solid #dcdcdc;
+    font: {
+      size: 14px;
+    }
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+
+  .btn {
+    min-width: 120px;
+  }
+
+  .checkbox-container {
+    margin: 6px 0;
+  }
+
+  .modal__logo {
+    left: 10px;
+    margin-top: -23px;
+    position: absolute;
+    top: 50%;
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: $white;
+
+  &.fade {
+    &.in {
+      opacity: .85;
+    }
+  }
+}
+
+.fade {
+  opacity: 0;
+  @include transition(opacity .15s linear);
+
+  &.in {
+    opacity: 1;
+  }
+}
+
+/*endregion #MODALS*/

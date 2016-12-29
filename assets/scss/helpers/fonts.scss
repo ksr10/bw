@@ -1,0 +1,32 @@
+/*region #FONTS*/
+@include font-face("Proxima Nova Regular",
+  font-files(
+      "#{$fonts-path}/proximanova-regular-webfont.svg",
+      "#{$fonts-path}/proximanova-regular-webfont.ttf",
+      "#{$fonts-path}/proximanova-regular-webfont.woff",
+      "#{$fonts-path}/proximanova-regular-webfont.woff2",
+      "#{$fonts-path}//proximanova-regular-webfont.eot",
+      "#{$fonts-path}//proximanova-regular-webfont.eot?#iefix"
+  ));
+
+@include font-face("Proxima Nova Light",
+  font-files(
+      "#{$fonts-path}/proximanova-light-webfont.svg",
+      "#{$fonts-path}/proximanova-light-webfont.ttf",
+      "#{$fonts-path}/proximanova-light-webfont.woff",
+      "#{$fonts-path}/proximanova-light-webfont.woff2",
+      "#{$fonts-path}//proximanova-light-webfont.eot",
+      "#{$fonts-path}//proximanova-light-webfont.eot?#iefix"
+  ));
+
+@include font-face("Proxima Nova Bold",
+  font-files(
+      "#{$fonts-path}/proximanova-bold-webfont.svg",
+      "#{$fonts-path}/proximanova-bold-webfont.ttf",
+      "#{$fonts-path}/proximanova-bold-webfont.woff",
+      "#{$fonts-path}/proximanova-bold-webfont.woff2",
+      "#{$fonts-path}//proximanova-bold-webfont.eot",
+      "#{$fonts-path}//proximanova-bold-webfont.eot?#iefix"
+  ));
+
+/*endregion #FONTS*/
