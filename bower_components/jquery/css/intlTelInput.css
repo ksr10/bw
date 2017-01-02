@@ -1,9 +1,9 @@
-.intl-tel-input{position:relative;display:inline-block}
+.intl-tel-input{position:relative;}
 .intl-tel-input *{box-sizing:border-box;-moz-box-sizing:border-box}
 .intl-tel-input .hide{display:none}
 .intl-tel-input .v-hide{visibility:hidden}
 .intl-tel-input input,.intl-tel-input input[type=text],.ui.form .intl-tel-input input[type=tel]
-{position:relative;z-index:0;margin-top:0 !important;margin-bottom:0 !important;padding-left:48px; vertical-align: middle;
+{position:relative;z-index:0;margin-top:0 !important;margin-bottom:0 !important;vertical-align: middle;
  margin-left:0;transition:background-color 100ms ease-out}
 .intl-tel-input input.iti-invalid-key{transition:background-color 0;background-color:#FFC7C7}
 .intl-tel-input .flag-dropdown{position:absolute;top:0;bottom:0;padding:1px}
@@ -12,7 +12,7 @@
 .intl-tel-input input[disabled]+.flag-dropdown:hover,.intl-tel-input input[readonly]+.flag-dropdown:hover{cursor:default}
 .intl-tel-input input[disabled]+.flag-dropdown:hover .selected-flag,.intl-tel-input input[readonly]+.flag-dropdown:hover .selected-flag
 {background-color:transparent}
-.intl-tel-input .selected-flag{z-index:1;position:relative;width:42px;height:100%;padding:0 0 0 8px}
+.intl-tel-input .selected-flag{z-index:1;position:relative;width:42px;height:100%;padding:0 0 0 8px; display:none;}
 .intl-tel-input .selected-flag .iti-flag{position:absolute;top:0;bottom:0;margin:auto}
 .intl-tel-input .selected-flag .arrow
 {position:absolute;top:50%;margin-top:-2px;right:4px;width:0;height:0;

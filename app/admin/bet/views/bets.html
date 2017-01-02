@@ -1,0 +1,163 @@
+<div class="ui form segment admin-form-wrapper find-policy-wrapper" ng-controller="BetController as bet" ng-init="bet.getBets();"> 
+    <form id="findCustomerForm" name="findCustomerForm" novalidate>
+        <div class="float-left-block">
+            <div>
+                <div class="inline field">
+                    <label>Дата:</label>
+                    <input type="text" bw-datepicker name="email" ng-model="bet.data.date" placeholder="Дата" />        
+                </div>                
+            </div>             
+        </div>         
+        <div class="admin-button-set btn-wrapper float-right-block">
+            <a id="findQuote" ng-click="bet.getBets()">
+                <div class="ui blue button find-btn">
+                    <i class="search icon"></i> Поиск
+                </div>
+            </a>                           
+        </div>
+        <div class="clear"></div>
+    </form>
+    <div class="data-container">
+        <div class="notes-wrapper" style="margin-top:30px">
+            <div class="title">Претенденты до 15:00</div>
+            <table class="ui celled striped table unstackable" ng-show="bet.data.groupFirstBets.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">Дата</th>
+                        <th width="30%">Чемпионат</th>
+                        <th width="35%">Матч</th>
+                        <th width="5%">Коэф.</th>
+                        <th width="5%">Ставка</th>
+                        <th width="10%">Счет</th>
+                        <th width="5%">Ставка</th>                                                  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in bet.data.groupFirstBets">
+                        <td width="10%">{{item.date}}</td>
+                        <td width="30%">{{item.championshipName}}</td>
+                        <td width="35%">{{item.host_team}} - {{item.guest_team}}</td>
+                        <td width="5%">{{item.ratio}}</td>
+                        <td width="5%">{{item.bet}}</td>
+                        <td width="10%">
+                            <span ng-class="{resultSuccess: item.success === '1', 
+                                        resultFailure: item.success === '0',
+                                        resultCancel: item.success === '2'}">{{item.result}}</span>
+                        </td>
+                        <td width="5%"><span ng-if="item.selected === '1'">Да</span></td>                           
+                    </tr>
+                </tbody>
+            </table>            
+            <table class="ui celled striped table unstackable" ng-show="!bet.data.groupFirstBets.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">Дата</th>
+                        <th width="30%">Чемпионат</th>
+                        <th width="40%">Матч</th>
+                        <th width="5%">Коэф.</th>
+                        <th width="10%">Счет</th>                                             
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6">Нет событий</td>                                                                   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="notes-wrapper" style="margin-top:30px">
+            <div class="title">Претенденты 15:00 - 19:00</div>
+            <table class="ui celled striped table unstackable" ng-show="bet.data.groupSecondBets.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">Дата</th>
+                        <th width="30%">Чемпионат</th>
+                        <th width="35%">Матч</th>
+                        <th width="5%">Коэф.</th>
+                        <th width="5%">Ставка</th>
+                        <th width="10%">Счет</th>
+                        <th width="5%">Ставка</th>                                                   
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in bet.data.groupSecondBets">
+                        <td width="10%">{{item.date}}</td>
+                        <td width="30%">{{item.championshipName}}</td>
+                        <td width="35%">{{item.host_team}} - {{item.guest_team}}</td>
+                        <td width="5%">{{item.ratio}}</td>
+                        <td width="5%">{{item.bet}}</td>
+                        <td width="10%">
+                            <span ng-class="{resultSuccess: item.success === '1', 
+                                        resultFailure: item.success === '0',
+                                        resultCancel: item.success === '2'}">{{item.result}}</span>
+                        </td>
+                        <td width="5%"><span ng-if="item.selected === '1'">Да</span></td>                      
+                    </tr>
+                </tbody>
+            </table>            
+            <table class="ui celled striped table unstackable" ng-show="!bet.data.groupSecondBets.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">Дата</th>
+                        <th width="30%">Чемпионат</th>
+                        <th width="40%">Матч</th>
+                        <th width="10%">Коэф.</th>
+                        <th width="10%">Счет</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6">Нет событий</td>                                                                   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="notes-wrapper" style="margin-top:30px">
+            <div class="title">Претенденты после 19:00</div>
+            <table class="ui celled striped table unstackable" ng-show="bet.data.groupThirdBets.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">Дата</th>
+                        <th width="30%">Чемпионат</th>
+                        <th width="35%">Матч</th>
+                        <th width="5%">Коэф.</th>
+                        <th width="5%">Ставка</th>
+                        <th width="10%">Счет</th>
+                        <th width="5%">Ставка</th>                                                  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in bet.data.groupThirdBets">
+                        <td width="10%">{{item.date}}</td>
+                        <td width="30%">{{item.championshipName}}</td>
+                        <td width="35%">{{item.host_team}} - {{item.guest_team}}</td>
+                        <td width="5%">{{item.ratio}}</td>
+                        <td width="5%">{{item.bet}}</td>
+                        <td width="10%">
+                            <span ng-class="{resultSuccess: item.success === '1', 
+                                        resultFailure: item.success === '0',
+                                        resultCancel: item.success === '2'}">{{item.result}}</span>
+                        </td>
+                        <td width="5%"><span ng-if="item.selected === '1'">Да</span></td>                    
+                    </tr>
+                </tbody>
+            </table>            
+            <table class="ui celled striped table unstackable" ng-show="!bet.data.groupThirdBets.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">Дата</th>
+                        <th width="30%">Чемпионат</th>
+                        <th width="40%">Матч</th>
+                        <th width="10%">Коэф.</th>
+                        <th width="10%">Счет</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6">Нет событий</td>                                                                   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

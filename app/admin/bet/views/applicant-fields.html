@@ -1,0 +1,32 @@
+<div ng-controller="ApplicantController as applicant">
+    <div style="float:left;">
+        <div class="inline field">
+            <input type="text" style="width:300px;" placeholder="Чемпионат" ng-model="bet.data.championships[applicant.index]" />        
+        </div>
+    </div>   
+    <div style="float:left;">
+        <div class="inline field">
+            <input type="text" placeholder="Хозяева" ng-model="bet.data.host_teams[applicant.index]" />        
+        </div>
+    </div>            
+    <div style="float:left;">
+        <div class="inline field">
+            <input type="text" placeholder="Гости" ng-model="bet.data.guest_teams[applicant.index]" />        
+        </div>
+    </div>
+    <div style="float:left;">
+        <div class="inline field">
+            <input type="text" placeholder="Коэффициент" ng-model="bet.data.ratios[applicant.index]" />        
+        </div>
+    </div>
+    <div style="float:left;">
+        <div class="inline field" style="margin-top:10px;">
+            <input type="text" placeholder="Дата/время" ng-model="bet.data.dates[applicant.index]" />        
+        </div>
+    </div>
+    <div style="float:left;">
+        <div class="inline field" style="margin-top:10px;">
+            <input type="text" placeholder="Ставка" ng-model="bet.data.bets[applicant.index]" />        
+        </div>
+    </div>
+</div>

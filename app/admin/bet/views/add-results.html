@@ -1,0 +1,20 @@
+<div class="ui form segment admin-form-wrapper find-policy-wrapper" ng-controller="BetController as bet" ng-init="bet.initAddResults()">    
+    <div class="">        
+        <div style="margin-top:10px;"  ng-repeat="applicant in bet.data.applicantsForResult track by $index">
+            <div style="margin-bottom:10px;">
+                <span>{{applicant.championshipName}}</span><span style="padding-left:20px;">{{applicant.host_team}} - {{applicant.guest_team}}</span>
+                <span style="padding-left:20px;">{{applicant.date}}</span>
+            </div>
+            <div class="inline field">
+                <input type="text" style="width:100px;" placeholder="Результат" ng-model="bet.data.resultScore[$index]" />        
+                <input type="hidden" ng-model="bet.data.resultBet[$index]" />   
+                <input type="hidden" ng-model="bet.data.resultApplicantId[$index]" />   
+            </div>                      
+        </div>
+        <div class="clear" style="padding-top:10px;">            
+            <a ng-click="bet.saveResults()">
+                <div class="ui blue button add-btn">Сохранить</div>
+            </a>            
+        </div>        
+    </div>    
+</div>

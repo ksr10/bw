@@ -20,8 +20,18 @@
     padding-left: 15px;
     margin-top: 2px;
 }
+.error-message-noback {
+    color: #d40707;
+    font-size: 13px;
+    text-align: right;    
+    padding-right: 15px;
+    margin-top: 2px;
+}
+.phone-error-msg {
+    display: none;
+}
 .ui.form.admin-form-wrapper .success.message, .ui.form.admin-form-wrapper .warning.message, .ui.form.admin-form-wrapper .error.message,
-.ui.form .send-documents-form .success.message {
+.ui.form .send-documents-form .success.message, #sendDocuments .success.message {
     display: block;
 }
 .menu .right.menu > .mobile.item {
@@ -33,3 +43,1038 @@
 .admin-wrapper .ui.segment {
     box-shadow: none;
 }
+.notes-add-container, .quotes-add-container {
+    float: right;
+    margin-bottom: 11px;
+}
+.notes-header-container, .quotes-header-container {
+    float: left;
+}
+.screening-label {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 30px;
+}
+.screening-value {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 10px;
+}
+.ui.segment.ins-content-customer {
+    border-radius: 0.2857rem;
+    box-shadow: 0 0 0 1px #a9a9a9, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+.screening-questions {
+    padding: 15px; 
+    color:#888888;
+}
+.screening-questions .question-text {
+    margin-top:10px;
+}
+.screening-questions .response-text {
+    margin-top:10px; 
+    font-weight:bold;
+}
+.screening-fields {
+    padding: 15px; 
+    color:#888888;
+}
+.screening-fields .field-name {
+    float: left; 
+    width:45%;
+    font-weight:bold;
+}
+.screening-fields .field-value {
+    float: left; 
+    width:50%;
+}
+.customer-policy-container a i {
+    cursor: pointer;
+}
+.ui.inverted.blue.menu {
+    background-color: #262f73;
+}
+.ui.blue.buttons .button, .ui.blue.button {
+    background-color: #262f73;
+}
+.clear {
+    clear: both;
+}
+[class^="flaticon-"]::before, [class*=" flaticon-"]::before, [class^="flaticon-"]::after, [class*=" flaticon-"]::after {
+    margin: 0 6px 0 0;
+    font-size: 16px;    
+}
+.admin-wrapper .ui.grid > .column[class*="fourteen wide"] {
+    width: 90% !important;
+}
+.ui.mobile i {
+    color: #000;
+}
+.menu .left {
+    float: left;
+    font-size: 35px;      
+}
+.menu .left a {
+    color: #fff;
+    height: 75px;
+    width: 140px;
+    padding: 8px 0 0 128px;  
+    margin: 5px;
+    display: block;
+}
+.ui.menu .item, .ui.menu .item > i.dropdown.icon {
+    line-height: 3.5em;
+}
+.menu .left a:hover, .menu .left a:focus {
+    color: #fff;
+}
+.menu-more {
+    display: none;
+}
+.ui.dropdown .menu > .item.tabletItemFirst, .ui.dropdown .menu > .item.tabletItemSecond {
+    display: none;
+}
+.activeMainMenu {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+.activeMenu {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+.dashboard-page .ui.button {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-top: 10px;
+    width: 220px;
+    font-size: 17px;
+    line-height: 30px;
+    margin-left: 10px;
+}
+.ui.inverted.blue.menu {
+    background-color: #262f73;
+}
+.ui.form.find-quote-wrapper .field, .ui.form.find-policy-wrapper .field, .ui.form.add-notes-wrapper .field,
+.ui.form.find-quote-wrapper .field {
+    display: inline-block;
+    margin-right: 20px;
+}
+.ui.form.find-quote-wrapper .admin-button-set, .ui.form.find-policy-wrapper .admin-button-set, 
+.ui.form.add-notes-wrapper .admin-button-set {
+    display: inline-block;
+}
+.admin-wrapper-result {
+    background-color: #e8e8e8;
+    box-shadow: 0 0 0 1px #e0e0e0 inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    margin-to: 20px;
+    padding: 10px;
+    border-radius: 0.2857rem;
+}
+.search-result-item {
+    line-height: 25px;
+}
+.search-result-item .item-label {
+    color: #009fda;
+    float: left;
+    width: 110px;
+}
+.search-result-item .item-value {
+    float: left;
+}
+.search-result-item .subitem-value span {
+    display: inline-block;
+    width: 60px;
+}    
+.search-result-item .subitem-title {
+    font-weight: bold;
+}
+.search-result-item .subitem-label {
+    display: inline-block;
+    margin-right: 20px;
+    width: 200px;
+}
+.inl-block {
+    display: inline-block;
+}
+.mrg-left-ten {
+    margin-left: 10px;
+}
+.mrg-top-twenty {
+    margin-top: 20px;
+}
+.txt-align-left {
+    text-align: left !important;
+}
+.search-result-item .subitem-description {
+    display: inline-block;
+}
+.endorse-policy-wrapper .ui.form .inline.field > label {
+    width: 135px;
+}
+.add-notes-wrapper .ui.form .inline.field > label {
+    width: 70px;
+}
+.endorse-policy-wrapper .ui.form .inline.field > input, .add-notes-wrapper .ui.form .inline.field > input {
+    width: 250px;
+}
+.endorse-policy-wrapper .textareaWrapper, .add-notes-wrapper .textareaWrapper, .policy-notes.textareaWrapper {
+    width: 394px;
+}
+.policy-notes.textareaWrapper {
+    font-size:18px; 
+    padding:10px;
+}
+.ui.form #noteFormWrapper .policy-notes.textareaWrapper textarea {
+    height: 150px;
+    width: 800px;
+    font-size:16px; 
+}
+.endorse-policy-wrapper .admin-button-set, .add-notes-wrapper .admin-button-set,
+.find-quote-wrapper .admin-button-set, .find-policy-wrapper .admin-button-set {
+    text-align: right;
+}
+.endorse-policy-wrapper .admin-wrapper-result, .add-notes-wrapper .admin-wrapper-result {
+    margin-top: 20px;
+}
+.endorse-policy-wrapper .search-result-item .item-label {
+    width: 170px;
+}
+.ui-widget-header {
+    background: #262f73;
+    border: 1px solid #262f73;
+}
+p.title {
+    color: #009fda;
+}
+.question-wrapper {
+    margin-bottom: 10px;
+    padding: 10px;    
+}
+.error .question-content, .error .response-items {
+    color: #d95c5c;
+}
+.error .response-items label {
+    background: #fff0f0 !important;
+    border-color: #dbb1b1 !important;
+    color: #d95c5c !important;
+}
+.question-tips, .field-tips {
+    font-size: 13px;
+}
+.send-srcform-wrapper .admin-button-set {
+    text-align: right;
+}
+.screening-bottom {
+    margin-top: 20px;
+}
+.screening-bottom .title {
+    font-weight: bold;
+}
+.screening-bottom .screening-form-wrapper {
+    background-color: #e8e8e8;
+    box-shadow: 0 0 0 1px #e0e0e0 inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 0.2857rem;
+}
+.ui.form .screening-form-wrapper .textareaWrapper .inline.field > label {
+    width: 100%;
+}
+.screening-form-wrapper .main-subform {
+    margin-top: 20px;
+}
+.screening-form-wrapper .textareaWrapper {
+    margin-top: 10px;
+}
+.ui.form .screening-form-wrapper .inline.field > label {
+    width: 280px;
+}
+.ui.form .screening-form-wrapper .inline.field > input {
+    width: 250px;
+}
+.ui.form .screening-form-wrapper .main-subform .inline.field > label {
+    width: 200px;
+}
+.ui.form .screening-form-wrapper .main-subform .inline.field > input {
+    width: 300px;
+}
+.ui.form .inline.field select.dobs-day {
+    width: 88px;
+    display: inline-block;
+}
+.ui.form .inline.field select.dobs-month {
+    width: 120px;
+    display: inline-block;
+}
+.ui.form .inline.field select.dobs-year {
+    width: 88px;
+    display: inline-block;
+}
+.data-container .title {
+    color: #009fda;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+.data-container table i {
+    cursor: pointer;
+}
+.destination-wrapper, .party-wrapper {
+    margin-top: 20px;
+}
+.formRow {
+    display: none;
+}
+.ui.form .data-container .two.fields > .field {
+    width: 45%;
+}
+.ui.form .data-container .two.fields > .field label {
+    width: 150px;
+}
+.ui.form .data-container .two.fields > .field input {
+    width: 200px;
+}
+.data-container .btn-wrapper {
+    text-align: right;
+}
+.manage-pricing-wrapper .ui.form .field:last-child {
+    margin-bottom: 14px;
+}
+.login-form-header {
+    height: 35px;
+    background-size: 90px 35px !important; 
+}
+.login-form-container .ui.form {
+    margin-top: 10px;
+}
+#noteFormWrapper, #questionFormWrapper {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    background-color: #e8e8e8;
+    border-radius: 0.2857rem;
+    box-shadow: 0 0 0 1px #e0e0e0 inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05);    
+    padding: 20px;
+}
+.ui.form #noteFormWrapper .two.fields > .field, .ui.form #questionFormWrapper .two.fields > .field {
+    width: 45%;    
+}
+.ui.form #noteFormWrapper .inline.field > input, .ui.form #questionFormWrapper .inline.field > input {
+    width: 250px;
+}
+.ui.form #noteFormWrapper .inline.field > label {
+    width: 80px;
+}
+.ui.form #questionFormWrapper .inline.field > label {
+    width: 115px;
+}
+.ui.form #noteFormWrapper #endorsePolicyForm .inline.field > label {
+    width: 120px;
+}
+.ui.form #noteFormWrapper textarea {
+    width: 255%;
+}
+.ui.form #questionFormWrapper textarea {
+    width: 100%;
+}
+.ui.form #noteFormWrapper #endorsePolicyForm textarea {
+    width: 140%;
+}
+#noteFormWrapper .admin-button-set a, #questionFormWrapper .admin-button-set a {
+    display: inline-block;
+}
+.ui.form.add-notes-wrapper #noteFormWrapper .admin-button-set, 
+.ui.form.find-quote-wrapper #noteFormWrapper .admin-button-set,
+.ui.form.find-policy-wrapper #noteFormWrapper .admin-button-set,
+.ui.form.medical-questions-wrapper #questionFormWrapper .admin-button-set {
+    display: block;
+    margin-top: 20px;
+}
+.ui.form.find-policy-wrapper #noteFormWrapper #findCustomerForm .admin-button-set {
+    display: inline-block;
+}
+#noteFormWrapper .ui.error.message {
+    display: block;
+}
+.ui.form #addQuoteForm select, .ui.form #addPolicyForm select, .ui.form #addUserForm select,
+.ui.form #detailsForm select {
+    display: inline-block;
+    width: 250px;
+}
+.ui.form #noteFormWrapper #addQuoteForm .inline.field > label,
+.ui.form #noteFormWrapper #addPolicyForm .inline.field > label,
+.ui.form #detailsForm .inline.field > label {
+    width: 100%;
+}
+.ui.positive.buttons .button, .ui.positive.button {
+    background-color: #262f73 !important;
+}
+.ui.positive.buttons:hover .button, .ui.positive.button:hover {
+    background-color: #262f73 !important;
+}
+.customer-details-wrapper .details-item, .introducer-details-wrapper .details-item {
+    line-height: 23px;
+    padding-left: 12px;
+}
+.customer-details-wrapper .details-label, .introducer-details-wrapper .details-label {
+    float: left;
+    width: 100px;
+    font-weight: bold;    
+}
+.customer-details-wrapper .details-value, .introducer-details-wrapper .details-value {
+    float: left;
+    max-width: 300px;
+}
+.customer-details-wrapper {
+    width: 50%;
+    float: left;
+}
+.introducer-details-wrapper {
+    width: 48%;
+    float: left;
+}
+.introducer-details-wrapper .introducer-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px 10px;
+}
+.customer-info-container {
+    border-radius: 0.2857rem;
+    box-shadow: 0 0 0 1px #a9a9a9, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.customer-info-container h3 {
+    font-size: 25px;
+    padding-left: 11px;
+    float: left;    
+}
+.med-questions-btns {
+    margin-bottom: 20px;
+}
+.customer-info-container {
+    border-radius: 0.2857rem;
+    box-shadow: 0 0 0 1px #a9a9a9, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.customer-info-container h3 {
+    font-size: 25px;
+    padding-left: 11px;
+    float: left;    
+}
+.customer-links {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+}
+.expiredQuote {
+    color: #808080;
+}
+.endorsments-wrapper .title {
+    font-weight: bold;
+}
+.back-button-wrapper {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.ui.form #findQuotesForm .inline.field > label {
+    width: 60px;
+}
+.ui.form #addPolicyForm .required.field > .checkbox::after {
+    content: '';
+}
+.ui.form #addPolicyForm .required.field > .checkbox {
+    margin-right: 20px;
+}
+.ui.form .travellers-number input[type="number"] {
+    padding: 2px;
+    width: 115px !important;
+}
+.ins-admin-label {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1em;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.ui.form #noteFormWrapper .party-age-container .inline.field > label {
+    width: 100%;
+}
+.ui.form.find-policy-wrapper .party-age-container .field {
+    display: block;
+}
+.ui.form .party-age-container select {
+    width: 115px;
+}
+.quote-offers-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.quote-heading {
+    background-color: #262f73;
+    border-color: #262f73;
+    color: #ffffff;
+    font-size: 18px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 10px 15px;
+    min-height: 70px;
+    text-align: center;
+}
+.quote-heading span {
+    font-size: 25px;
+}
+.quote-content {
+    background-color: #eef4f7;
+    margin-bottom: 20px;
+}
+.total-price {
+    color: #666666;
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 20px;
+    padding-top: 20px;
+    display: inline-block;
+}
+.quote-content .total-price {
+    font-size: 28px;
+}
+.quote-content .ui.blue.button {
+    margin-left: 15px;
+    vertical-align: bottom;
+}
+.policy-ipt {
+    padding: 10px 10px 0 20px;
+}
+.features-container {
+    margin-top: 10px;
+    padding-left: 10px;
+}
+.features-container .feature-item {
+    float: left;
+    width: 80px;     
+    text-align: center;
+}
+.features-container .feature-item a {
+    color: #262f73;
+}
+.policy-options {
+    background-color: #fff;
+    color: #666666;
+    margin-top: 10px;
+    padding: 5px;
+}
+.options-container {
+    margin: 20px 20px 0 20px;
+    padding-bottom: 20px;
+}
+.policy-option {
+    margin: 10px 0 0 5px;
+}
+.policy-options {
+    display: none;
+}
+.policy-description {
+    padding: 10px 10px 0 20px;
+    min-height: 50px;
+}
+.options-removable {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+}
+.quote-options-wrapper, #personForm, #detailsForm, #addPolicyForm, 
+ #addPolicyFormAges, #medical-questions-form, #findCustomerForm, .total-wrapper {
+    color: #000;
+    background-color: #e8e8e8;
+    box-shadow: 0 0 0 1px #e0e0e0 inset, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+#personForm, #detailsForm, #addPolicyForm, #addPolicyFormAges, 
+#medical-questions-form, #findCustomerForm, .total-wrapper {
+    padding: 10px;    
+}
+#personForm, #detailsForm, #addPolicyFormAges, #medical-questions-form, .total-wrapper {
+    margin-top: 50px;
+}
+.quote-option-price {
+    display: inline-block;
+    width: 80px;
+}
+.option-info {
+    color: #000;
+    display: none;
+    padding: 10px 0 10px 24px;
+    opacity: 0.85;        
+}
+.options-summary {
+    margin-bottom: 20px;
+}
+.options-summary .options-summary-item .summary-lable {
+    width: 125px;
+    line-height: 25px;
+}
+.options-summary .options-summary-item .summary-value {
+    line-height: 25px;
+}
+.price-summary {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.price-summary span {
+    color: #009fda;
+}
+.ui.form .success.message.quote-options-container {
+    display: block;
+}
+.quote-option a {
+    display: inline-block;
+    line-height: 30px;
+    width: 325px;
+    text-transform: capitalize;
+}
+.summary-block-left {
+    float: left;
+    width: 45%;
+}
+.summary-block-right {
+    float: left;
+    width: 50%;
+}
+.summary-lable, .summary-value {
+    float: left;
+}
+.summary-value {
+    width: 50%;
+}
+.summary-lable {
+    font-weight: bold;
+    width: 45%;
+}
+.summary-item {
+    margin-bottom: 10px;
+}
+.dobsErrorExplanation {
+    display: none;
+    background: url("images/validation_advice_bg.gif") no-repeat scroll 2px 2px rgba(0, 0, 0, 0);
+    color: #d40707;
+    font-size: 13px;
+    margin-top: 2px;
+    padding-left: 15px;
+    text-align: left;
+}
+.ui.form .details-right {
+    float: right;
+    width: 52%;
+    padding-left: 5px;
+}
+.lookup-btn-wrapper {
+    margin: 10px 0 10px 137px;
+}
+#addressSuggestion {
+    margin: 10px 0 0 0;
+}
+.total-wrapper .price-summary span.total-title {
+    color: #000;
+    display: inline-block;
+    width: 140px;
+}
+.ui.form #noteFormWrapper #personForm .inline.field > label {
+    display: block;
+}
+.float-left-block {
+    float: left;
+}
+.float-right-block {
+    float: right;
+}
+#findCustomerForm label {
+    width: 55px;
+}
+.find-introducer-container {
+    float: right;
+}
+.edit-introducer-container {
+    float: left;
+}
+.add-introducer-btns {
+    text-align: right;
+}
+.ui.form.edit-introducer-form .field {
+    display: inline-block;
+    margin-right: 20px;
+}
+.ui.form.edit-introducer-form .base-info {
+    float: left;
+    width: 70%;
+}
+.ui.form.edit-introducer-form .logo-info {
+    float: left;
+}
+.ui.form.edit-introducer-form .two.fields > .field {
+    width: auto;
+}
+.ui.form.edit-introducer-form .wide-field {
+    margin-bottom: 20px;
+}
+.ui.form.edit-introducer-form .wide-field input {
+    width: 466px;
+}
+.ui.form.edit-introducer-form .two.fields input {
+    width: 105px;
+}
+.ui.form .inline.field > label {
+    min-width: 103px;
+}
+.ui.checkbox.introducer-form-checkbox {
+    margin-right: 30px !important;
+}
+.ui.checkbox.introducer-form-checkbox label, .introducer-form-radio .ui.checkbox label {
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 10px;
+}
+.introducer-form-radio {
+    display: inline-block;
+}
+.introducer-form-radio .ui.radio.checkbox {
+    margin-left: 20px;
+}
+.introducer-form-radio .field {
+    display: inline-block;
+}
+.page-info {
+    border-top: 2px solid #cccccc;
+    padding-top: 20px;
+}
+.ui.segment.edit-introducer-form {
+    border-top: 2px solid #cccccc;
+    border-radius: 0;
+}
+.introducer-content-edit {
+    margin-top: 20px;
+}
+.introducer-content-edit label {
+    font-weight: bold;
+    font-size: 13px;
+}
+.edit-introducer-error {
+    color: #d95c5c;
+}
+.upload-proccess-container {
+    margin-top: 20px;
+}
+.upload-proccess-container input[type="file"] {
+    max-width: 230px;
+}
+.upload-proccess-container ul li {
+    list-style: outside none none;
+}
+.upload-proccess-container ul {
+    padding-left: 0 !important;
+}
+.upload-proccess-container .ui.progress .bar {
+    background: #3570c1;
+    min-width: 0;
+}
+.customer-policy-container {
+    border-radius: 0.2857rem;
+    box-shadow: 0 0 0 1px #a9a9a9, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+#notesHeaderContainer h3 {
+    margin-bottom: 20px;
+}
+.full-note-wrapper {
+    display: none;
+}
+.note-item a {
+    text-decoration: underline;
+}
+#detailsForm #postcode, #personForm #postcode {
+    text-transform: uppercase;
+}
+.annual-trip-wrapper {
+    margin-top: 5px;
+}
+.annual-trip-wrapper .annual-trip-label {
+    padding: 10px 10px 0 20px;
+}
+.annual-trip-wrapper .annual-trip-price {
+    display: inline-block;
+    color: #666666;
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 20px;    
+    width: 95px;
+    padding-top: 15px;
+}
+.hidden-ie-prefix {
+    display: none;
+}
+.options-price-block {
+    display: inline-block;
+}
+.edit-price-block {
+    display: inline-block;
+    margin-left: 20px;
+}
+.edit-price-block.editShown {
+    margin-left: 0px;
+}
+.price-summary .edit-price-block span {
+    color: #fff;
+}
+.ui.form #noteFormWrapper .edit-price-block .inline.field > input {
+    width: 90px;
+}
+.send-docs-wrapper .inline.field {
+    display: inline-block;
+    margin: 0 10px 0 20px;
+}
+.ui.form.send-docs-wrapper .inline.field > input {
+    width: 200px;
+}
+.send-docs-wrapper .ui.button > .icon {
+    margin-left: 10px;
+}
+.email-quote-wrapper {
+    float: left;
+    margin-top: 20px;
+}
+.by-email-quote-wrapper {
+    float: right;
+}
+.ui.grid .email-quote-wrapper {
+    font-size: 1rem;
+}
+.ui.form #noteFormWrapper .email-quote-wrapper .inline.field > label {
+    width: 38px;
+    min-width: 38px;
+}
+.ui.form #noteFormWrapper .email-quote-wrapper .inline.field > input {
+    width: 200px;
+}
+.question-tip-admin {
+    font-weight: bold;
+    padding: 10px;
+}
+.ui.column.grid.login-form .forgot-wrapper a {
+    cursor: pointer;
+}
+#forgotPasswordForm .ui.error.message {
+    margin-top: 20px;
+}
+.policyCanceled, .ui.table thead th.policyCanceled {
+    color: #d95c5c;
+}
+.customer-policy-container .ui.table thead th {
+    font-size: 13px;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, 
+.pagination>.disabled>a:hover, .pagination>.disabled>span, 
+.pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination>li:last-child>a, .pagination>li:last-child>span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, 
+.pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.backBtnLeft {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.ui.button.applicantBtnSelected {
+    border: 1px solid #ff0000;
+}
+.resultSuccess {
+    background-color: #00e600;
+}
+.resultFailure {
+    background-color: #ff1a1a;
+}
+.resultCancel{
+    background-color: #ffff00;
+}
+
+@media only screen and (min-width : 1200px) {
+    #personForm .ui.form .inline.field select, #personForm .ui.form .inline.field input,
+    #addUserForm .inline.field select, .ui.form #noteFormWrapper #addUserForm .inline.field > input{
+        width: 305px;
+    }
+    #personForm .ui.form .inline.field select.dobs-day, #addUserForm .inline.field select.dobs-day {
+        width: 88px;
+    }
+    #personForm .ui.form .inline.field select.dobs-month, #addUserForm .inline.field select.dobs-month {
+        width: 120px;
+    }
+    #personForm .ui.form .inline.field select.dobs-year, #addUserForm .inline.field select.dobs-year {
+        width: 93px;
+    }   
+} 
+
+@media only screen and (max-width : 1226px) {
+    .ui.dropdown .item.desktopItemFirst {
+        display: none;
+    }
+    .ui.dropdown .menu > .item.tabletItemFirst {
+        display: block;
+    }
+}    
+
+@media only screen and (max-width : 1190px) {
+    .dashboard-page .ui.button {
+        width: 200px;
+        font-size: 15px;
+    }
+}    
+
+@media only screen and (max-width : 1100px) {
+    .ui.grid > .row[class*="four column"] > .column {
+        width: 40% !important;
+    }
+}    
+
+@media only screen and (max-width : 1090px) {
+    .ui.dropdown .item.desktopItemSecond {
+        display: none;
+    }
+    .ui.dropdown .menu > .item.tabletItemSecond {
+        display: block;
+    }
+}    
+
+@media only screen and (max-width : 992px) {
+    .ui.grid > .row[class*="four column"] > .column {
+        width: 25% !important;
+    }
+} 
+
+@media only screen and (max-width : 924px) {
+    .ui.grid > .row[class*="four column"] > .column {
+        width: 50% !important;
+    }
+} 
+
+@media only screen and (max-width : 768px) {
+    .ui.column.grid.login-form > .column[class*="twelve wide"] {
+        margin-top: 100px !important;
+        display: inline-block !important;
+        width: 50% !important;
+    }
+    .login-form-container .ui.stackable.grid > .column:not(.row) {
+        box-shadow: 0 0 0 1px rgba(39, 41, 43, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    }    
+    .menu .right.menu > .item {
+        display: none;
+    }
+
+    .menu .right.menu > .mobile.item {
+        display: block;
+    }
+    .menu .right.menu > .mobile.item .menu {
+        left: auto;
+        right: 0em;
+    }
+    .menu .left {
+        padding-top: 2px;
+    }
+    .ui.menu .item {
+        padding-top: 17px;
+    }
+}    
+
+@media only screen and (max-width : 731px) {
+    .admin-wrapper-result {
+        margin-top: 20px;
+    }
+}    
+
+@media only screen and (max-width : 625px) {
+    .ui.form.find-quote-wrapper .admin-button-set {
+        display: block;
+    }
+    .ui.form.find-quote-wrapper .inline.field label {
+        width: 65px;
+    }
+}    
+
+@media only screen and (max-width : 600px) {
+    .ui.column.grid.login-form > .column[class*="twelve wide"] {
+        width: 70% !important;
+    }
+}    
+
+@media only screen and (max-width : 600px) {
+    .ui.column.grid.login-form > .column[class*="twelve wide"] {
+        width: 90% !important;
+    }
+}    
+
+@media only screen and (max-width : 500px) {
+    .ui.grid > .row[class*="four column"] > .column {
+        width: 100% !important;
+    }
+    .dashboard-page .column .column {
+        text-align: center;
+    }
+    .endorse-policy-wrapper .ui.form .inline.field > input, .add-notes-wrapper .ui.form .inline.field > input {
+        width: 100%;
+    }
+    .endorse-policy-wrapper .textareaWrapper, .add-notes-wrapper .textareaWrapper {
+        width: 100%;
+    }
+    .endorse-policy-wrapper .admin-button-set, .add-notes-wrapper .admin-button-set {
+        text-align: left;
+        margin-left: 15px;
+    }
+} 
+
+@media only screen and (max-width : 400px) {
+    
+}    

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html data-ng-app="admin" ng-controller="LayoutController as layout">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <title>Admin Area</title>    
+    <link rel="stylesheet" href="/bower_components/semantic-ui/dist/semantic.css" />    
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/bower_components/jquery/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/admin.css" />    
+            
+    <script src="/bower_components/jquery/jquery-1.11.2.min.js"></script>
+    <script src="/bower_components/semantic-ui/dist/semantic.js"></script>   
+    <script src="/bower_components/jquery/jquery-ui.js"></script>    
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular/angular-local-storage.js"></script>
+    <script src="/bower_components/angular/angular-ui-router.js"></script>
+    <script src="/bower_components/angular/angular-file-upload.js"></script>  
+        
+    <script src="/app/admin/admin.module.js"></script>   
+    <script src="/app/admin/layout/layout.module.js"></script>
+    <script src="/app/admin/layout/config.js"></script>
+    <script src="/app/admin/layout/controllers/layout.js"></script>
+    <script src="/app/admin/layout/services/layout.service.js"></script>
+            
+    <script src="/app/admin/bet/bet.module.js"></script>   
+    <script src="/app/admin/bet/controllers/bet.js"></script>
+    <script src="/app/admin/bet/controllers/applicant.js"></script>
+    <script src="/app/admin/bet/services/bet.service.js"></script>  
+    <script src="/app/widgets/widgets.module.js"></script>   
+    <script src="/app/widgets/compile.js"></script>    
+    <script src="/app/widgets/bwDatepicker.js"></script>    
+</head>
+<body>
+    <div class="admin-wrapper">
+        <div ng-include="'/app/admin/bet/views/menu.html'"></div>
+        <div class="ui vertical feature segment admin-content">
+            <div class="ui centered page grid">
+                <div class="fourteen wide column">
+                    <div ui-view></div>                    
+                </div>
+            </div>
+        </div>        
+        <div ng-include="'/app/admin/layout/views/footer.html'"></div>
+    </div>
+</body>
+</html>

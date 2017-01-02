@@ -1,0 +1,61 @@
+<div class="ui form segment admin-form-wrapper find-policy-wrapper" ng-controller="UserController as uc" ng-init="uc.loadUsersData();">    
+    <div class="data-container">
+        <div class="notes-wrapper" ng-show="uc.data.users.dataLoaded">
+            <div class="title">Users</div>
+            <table class="ui celled striped table unstackable" ng-show="uc.data.users.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">ID</th>
+                        <th width="20%">Username</th>
+                        <th width="20%">Phone</th>
+                        <th width="30%">Avatar</th>  
+                        <th width="5%">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in uc.data.users">
+                        <td width="10%">{{user.id}}</td>
+                        <td width="20%">{{user.username}}</td>
+                        <td width="20%">{{user.phone}}</td>
+                        <td width="30%"><img ng-if="user.avatar" width="160" alt="avatar" ng-src="{{user.avatar}}" /></td>   
+                        <td width="5%"><a ui-sref="places({userId: user.id})"><i class="search icon"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div ng-show="uc.data.showPagination">
+              <ul class="pagination">
+                <li ng-class="{disabled: uc.data.pager.currentPage === 1}">
+                  <a ng-click="uc.setPage(1)">First</a>
+                </li>
+                <li ng-class="{disabled: uc.data.pager.currentPage === 1}">
+                  <a ng-click="uc.setPage(uc.data.pager.currentPage - 1)">Previous</a>
+                </li>
+                <li ng-repeat="page in uc.data.pager.pages" ng-class="{active: uc.data.pager.currentPage === page}">
+                  <a ng-click="uc.setPage(page)">{{page}}</a>
+                </li>
+                <li ng-class="{disabled: uc.data.pager.currentPage === uc.data.pager.totalPages}">
+                  <a ng-click="uc.setPage(uc.data.pager.currentPage + 1)">Next</a>
+                </li>
+                <li ng-class="{disabled: uc.data.pager.currentPage === uc.data.pager.totalPages}">
+                  <a ng-click="uc.setPage(uc.data.pager.totalPages)">Last</a>
+                </li>
+              </ul>
+            </div>
+            <table class="ui celled striped table unstackable" ng-show="!uc.data.users.dataExist">
+                <thead>
+                    <tr>
+                        <th width="10%">ID</th>
+                        <th width="30%">Username</th>
+                        <th width="30%">Phone</th>
+                        <th width="30%">Avatar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4">No Records Found</td>                                                                   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

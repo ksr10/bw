@@ -1,0 +1,19 @@
+<div class="ui form segment admin-form-wrapper find-policy-wrapper" ng-controller="BetController as bet" ng-init="bet.initSelectBet()">    
+    <a ng-repeat="applicant in bet.data.applicants track by $index" ng-click="bet.selectBet(applicant.id)">
+        <div id="applicantBtn{{applicant.id}}" class="ui blue button add-btn">{{applicant.randomDigit}}</div>
+    </a>
+    <div style="clear:both; margin-top:20px;">
+        <div style="margin-top:10px; display:none;" ng-repeat="applicant in bet.data.applicants track by $index" id="applicantInfo{{applicant.id}}">
+            <span>{{applicant.championshipName}}</span><span style="padding-left:20px;">{{applicant.host_team}} - {{applicant.guest_team}}</span>
+            <span style="padding-left:20px;">{{applicant.ratio}}</span><span style="padding-left:20px;">{{applicant.date}}</span><span style="padding-left:20px;">{{applicant.bet}}</span>
+        </div>
+    </div>
+    <div class="clear" style="padding-top:10px;">        
+        <a ng-click="bet.saveSelectedApplicants()">
+            <div class="ui blue button add-btn">Сохранить</div>
+        </a>
+        <a ng-click="bet.cancelLastSelected()">
+            <div class="ui blue button add-btn">Отменить последний выбор</div>
+        </a>
+    </div>
+</div>

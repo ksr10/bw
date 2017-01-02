@@ -1,0 +1,54 @@
+<div class="ui form segment admin-form-wrapper find-policy-wrapper" ng-controller="BetController as bet">    
+    <div class="">
+        <form id="findIntroducerForm" name="findIntroducerForm" novalidate style="margin-bottom:10px;">
+            <div id="applicantWrapper1" style="clear:both">
+                <div style="float:left;">
+                    <div class="inline field">
+                        <input type="text" style="width:300px;" placeholder="Чемпионат" ng-model="bet.data.championships[0]" />        
+                    </div>
+                </div>   
+                <div style="float:left;">
+                    <div class="inline field">
+                        <input type="text" placeholder="Хозяева" ng-model="bet.data.host_teams[0]" />        
+                    </div>
+                </div>            
+                <div style="float:left;">
+                    <div class="inline field">
+                        <input type="text" placeholder="Гости" ng-model="bet.data.guest_teams[0]" />        
+                    </div>
+                </div>
+                <div style="float:left;">
+                    <div class="inline field">
+                        <input type="text" placeholder="Коэффициент" ng-model="bet.data.ratios[0]" />        
+                    </div>
+                </div>
+                <div style="float:left;">
+                    <div class="inline field" style="margin-top:10px;">
+                        <input type="text" placeholder="Дата/время" ng-model="bet.data.dates[0]" />        
+                    </div>
+                </div>
+                <div style="float:left;">
+                    <div class="inline field" style="margin-top:10px;">
+                        <input type="text" placeholder="Ставка" ng-model="bet.data.bets[0]" />        
+                    </div>
+                </div>
+            </div>
+            <div class="clear" style="padding-top:10px;">
+                <a ng-click="bet.addMoreApplicants()">
+                    <div class="ui blue button add-btn">Добавить еще</div>
+                </a>
+                <a ng-click="bet.saveApplicants()">
+                    <div class="ui blue button add-btn">Сохранить</div>
+                </a>
+                <a ng-click="bet.removeLastApplicant()">
+                    <div class="ui blue button add-btn">Удалить последний</div>
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="add-introducer-btns">        
+        <a ng-click="bet.returnBack()">
+            <div class="ui blue button add-btn">Back</div>
+        </a>
+    </div>
+</div>

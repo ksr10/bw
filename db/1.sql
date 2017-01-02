@@ -1,58 +1,29 @@
-CREATE TABLE `leagues` (
+CREATE TABLE `championship` (
   `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,  
-  `country` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(255) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ratios` (
+CREATE TABLE `applicant_group` (
   `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `site_id` INT(11) NOT NULL,
-  `league_id` INT(11) NOT NULL,
-  `host_team` VARCHAR(255) NOT NULL,
-  `host_team_odds` DECIMAL(12,4) NOT NULL,
-  `draw_odds` DECIMAL(12,4) NOT NULL,
-  `guest_team` VARCHAR(255) NOT NULL,
-  `guest_team_odds` DECIMAL(12,4) NOT NULL,
-  `event_date` timestamp NOT NULL,  
+  `created` VARCHAR(255) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `rules` (
-  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,  
-  `description` TEXT NULL,  
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `virtual_users` (
-  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,  
-  `rule_id` INT(11) NOT NULL,
-  `total_amount` DECIMAL(12,4) NOT NULL,
-  `total_origin` DECIMAL(12,4) NOT NULL,
-  `status` ENUM('active', 'lost') DEFAULT 'active' NULL,
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `bets` (
-  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `rule_id` INT(11) NOT NULL,
-  `user_id` INT(11) NOT NULL,
-  `ratio_id` INT(11) NOT NULL,
-  `bet_amount` DECIMAL(12,4) NOT NULL,
-  `result` INT(11) NOT NULL,
-  `event_data` TEXT,  
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `results` (
-  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `ratio_id` INT(11) NOT NULL,
+CREATE TABLE `applicant` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `championship` int(10) NOT NULL,
   `host_team` VARCHAR(255) NOT NULL,
   `guest_team` VARCHAR(255) NOT NULL,
-  `event_date` timestamp NOT NULL,
-  `score` VARCHAR(255) NOT NULL,
-  `status` ENUM('new', 'used'),
+  `ratio` VARCHAR(255) NOT NULL,
+  `bet` VARCHAR(255) NOT NULL,
+  `status` ENUM('new', 'wait_select', 'wait_result', 'finished') DEFAULT 'new' NULL,
+  `selected` int(10) NOT NULL,
+  `group` int(10) NOT NULL,
+  `result` VARCHAR(255) NULL,
+  `success` int(10) NULL,
+  `date` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `applicant` CHANGE `date` `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;

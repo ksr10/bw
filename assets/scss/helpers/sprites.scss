@@ -1,8 +1,0 @@
-/*region #SPRITES*/
-$icons-sprite-dimensions: true;
-$icons-sort-by: width;
-
-@import "icons/*.png";
-@include all-icons-sprites;
-
-/*endregion #SPRITES*/
